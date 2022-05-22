@@ -144,9 +144,9 @@ const Login = () => {
                         <input className='btn w-full max-w-xs text-white' type="submit" value="Login" />
                     </form>
                     <p><small>New to site ? <Link className='text-primary' to="/signup">Create New Account</Link></small></p>
-                    <div className="w-100 text-center mt-2">
-                        <p>Forget Password? <button className='btn btn-link text-primary pe-auto text-decoration-none' onClick={resetPassword}>Reset Password</button> </p>
-                    </div>
+                    
+                        <p>Forget Password? <button className='' onClick={resetPassword}>Reset Password</button> </p>
+                    
 
                     <div className="divider">OR</div>
                     <button
