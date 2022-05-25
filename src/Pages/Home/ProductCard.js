@@ -14,7 +14,7 @@ const ProductCard = ({tool}) => {
                 <p>{quantity}</p>
                 <p>{price}</p>
                 <div class="card-actions">
-                    <Link to={`tools/${tool._id}`}>Purchase</Link>
+                    <Link to={`tools/${tool._id}`} className='btn btn-primary'>Purchase</Link>
                 </div>
             </div>
         </div>

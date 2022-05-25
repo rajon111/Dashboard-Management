@@ -9,6 +9,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 const ProductDetails = () => {
     const [user] = useAuthState(auth)
     const { id } = useParams()
+
     const { data: toolsDetails, loading, refetch } = useQuery(['toolsDetails', id], () => fetch(`http://localhost:5000/tools/${ id }`).then(res => res.json()));
     console.log(toolsDetails)
 
@@ -58,25 +59,23 @@ const ProductDetails = () => {
 
 
         <div>
-            <div class="hero min-h-screen bg-base-200">
+            <h1 className='text-3xl text-center text-bold bg-base-200'>Make Sure Your Order Now :</h1>
+            <div class="hero min-h-fit bg-base-200">
                 <div class="hero-content flex-col lg:flex-row">
-                    <img src={toolsDetails?.img} className='h-48 w-80' alt='' />
+                    <img src={toolsDetails?.img} alt='' />
                     <div>
                         <h1 class="text-5xl font-bold">{toolsDetails?.model}</h1>
-                        <p class="py-6">{toolsDetails?.quantity}</p>
-                        <button class="btn btn-primary">Get Started</button>
+                        <p class="py-6">${toolsDetails?.quantity}</p>
+                        <p class="py-6">${toolsDetails?.price}</p>
+                        
                     </div>
                 </div>
             </div>
 
 
             <form onSubmit={handleOrderSubmit}>
-                <div class="hero min-h-screen bg-base-200">
-                    <div class="hero-content flex-col lg:flex-row-reverse">
-                        {/* <div class="text-center lg:text-left">
-                        <h1 class="text-5xl font-bold">Login now!</h1>
-                        <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                    </div> */}
+                <div class="hero min-h-fit bg-base-200">
+        
                         <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                             <div class="card-body">
 
@@ -112,15 +111,12 @@ const ProductDetails = () => {
                                     </label>
                                     <input type="text" placeholder="address" name='address' class="input input-bordered" />
                                 </div>
-                                <input type="submit" value="Submit" />
-
-                                {/* <div class="form-control mt-6">
-                                    <button onClick={() => handleOrderSubmit()} class="btn btn-primary">Login</button>
-                                </div> */}
+                                <input type="submit" className='btn' value="Order Now" />
+                              
                             </div>
                         </div>
                     </div>
-                </div>
+                
             </form>
         </div>
     );
