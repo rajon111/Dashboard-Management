@@ -64,9 +64,9 @@ const ProductDetails = () => {
                 <div class="hero-content flex-col lg:flex-row">
                     <img src={toolsDetails?.img} alt='' />
                     <div>
-                        <h1 class="text-5xl font-bold">{toolsDetails?.model}</h1>
-                        <p class="py-6">${toolsDetails?.quantity}</p>
-                        <p class="py-6">${toolsDetails?.price}</p>
+                        <h1 class="text-5xl font-bold">Model: {toolsDetails?.model}</h1>
+                        <p class="py-6">Quantity: ${toolsDetails?.quantity}</p>
+                        <p class="py-6">Price: ${toolsDetails?.price}</p>
                         
                     </div>
                 </div>

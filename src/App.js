@@ -14,6 +14,7 @@ import UserReview from './Pages/Dashboard/User/UserReview'
 import MyOrders from './Pages/Dashboard/User/MyOrders'
 import ProductDetails from './Pages/ProductDetails/ProductDetails';
 import EditProfile from './Pages/Dashboard/EditProfile';
+import AllProducts from './Pages/Home/AllProducts';
 
 
 
@@ -24,6 +25,7 @@ function App() {
       <Routes>  
         <Route path='/' element={<Home/>}></Route>
         <Route path='/blog' element={<Blogs/>}></Route>
+        <Route path='/products' element={<AllProducts/>}></Route>
         <Route path='/tools/:id' element={<ProductDetails/>}></Route>
         
         <Route path='/protfolio' element={<Portfolio/>}></Route>
