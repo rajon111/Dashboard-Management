@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ProductCard = ({tool}) => {
     const {img,price,quantity,model} = tool
@@ -13,7 +14,7 @@ const ProductCard = ({tool}) => {
                 <p>{quantity}</p>
                 <p>{price}</p>
                 <div class="card-actions">
-                    <button class="btn btn-primary">Purchase</button>
+                    <Link to={`tools/${tool._id}`}>Purchase</Link>
                 </div>
             </div>
         </div>
