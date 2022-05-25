@@ -14,6 +14,10 @@ import UserReview from './Pages/Dashboard/User/UserReview'
 import MyOrders from './Pages/Dashboard/User/MyOrders'
 import ProductDetails from './Pages/ProductDetails/ProductDetails';
 import EditProfile from './Pages/Dashboard/EditProfile';
+import AddProduct from './Pages/Dashboard/Admin/AddProduct';
+import ManageOrder from './Pages/Dashboard/Admin/ManageOrder';
+import ManageProduct from './Pages/Dashboard/Admin/ManageProduct';
+import Users from './Pages/Dashboard/Admin/Users';
 import AllProducts from './Pages/Home/AllProducts';
 
 
@@ -33,6 +37,10 @@ function App() {
             <Route index element={<MyProfile></MyProfile>}></Route>
             <Route path='review' element={<UserReview></UserReview>}></Route>
             <Route path='orders' element={<MyOrders></MyOrders>}></Route>
+            <Route path='addproduct' element={<AddProduct/>}></Route>
+            <Route path='manageorder' element={<ManageOrder/>}></Route>
+            <Route path='manageproduct' element={<ManageProduct/>}></Route>
+            <Route path='users' element={<Users/>}></Route>
             <Route path='edit' element={<EditProfile></EditProfile>}></Route>
         </Route>
         <Route path='/login' element={<Login></Login>}></Route>
