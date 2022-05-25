@@ -1,31 +1,15 @@
 import React from 'react';
 import Review from './Review';
+import { useQuery } from 'react-query'
+import Loading from '../../Pages/Shared/Loading'
 
 const Testimonials = () => {
+    const { data: reviews, isLoading } = useQuery('reviews', () => fetch('http://localhost:5000/api/home/review').then(res => res.json()));
 
-    const reviews = [
-        {
-            _id:1,
-            name: 'Winson Herry',
-            review: '',
-            location: 'california',
-            // img: people1
-        },
-        {
-            _id:2,
-            name: 'Winson Herry',
-            review: '',
-            location: 'california',
-            // img: people2
-        },
-        {
-            _id:3,
-            name: 'Winson Herry',
-            review: '',
-            location: 'california',
-            // img: people3
-        },
-    ];
+    console.log('check',reviews)
+    if(isLoading){
+        return <Loading></Loading>
+    }
 
     return (
         <section className='my-28'>
@@ -40,7 +24,7 @@ const Testimonials = () => {
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                 {
-                    reviews.map(review =><Review
+                    reviews?.map(review =><Review
                         key={review._id}
                         review={review}
                     ></Review>)

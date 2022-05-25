@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MakeAdmin = () => {
+const ManageProduct = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const MakeAdmin = () => {
     );
 };
 
-export default MakeAdmin;
+export default ManageProduct;

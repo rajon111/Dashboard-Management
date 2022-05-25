@@ -13,6 +13,7 @@ import MyProfile from './Pages/Dashboard/MyProfile'
 import UserReview from './Pages/Dashboard/User/UserReview'
 import MyOrders from './Pages/Dashboard/User/MyOrders'
 import ProductDetails from './Pages/ProductDetails/ProductDetails';
+import EditProfile from './Pages/Dashboard/EditProfile';
 
 
 
@@ -30,6 +31,7 @@ function App() {
             <Route index element={<MyProfile></MyProfile>}></Route>
             <Route path='review' element={<UserReview></UserReview>}></Route>
             <Route path='orders' element={<MyOrders></MyOrders>}></Route>
+            <Route path='edit' element={<EditProfile></EditProfile>}></Route>
         </Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp/>}></Route>

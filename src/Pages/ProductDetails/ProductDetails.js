@@ -1,9 +1,10 @@
 import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
+
 import { useQuery } from 'react-query';
 import { Link, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 const ProductDetails = () => {
     const [user] = useAuthState(auth)
@@ -27,6 +28,9 @@ const ProductDetails = () => {
                 product: toolsDetails._id,
                 price: toolsDetails.price,
                 quantity: e.target.quantity.value,
+                phone: e.target.phone.value,
+                address: e.target.address.value,
+                
             }
             fetch('http://localhost:5000/api/order', {
                 method: 'POST',
@@ -95,6 +99,18 @@ const ProductDetails = () => {
                                         <span class="label-text">Quantity</span>
                                     </label>
                                     <input type="text" placeholder="quantity" name='quantity' class="input input-bordered" />
+                                </div>
+                                <div class="form-control">
+                                    <label class="label">
+                                        <span class="label-text">Phone</span>
+                                    </label>
+                                    <input type="number" placeholder="Phone" name='phone' class="input input-bordered" />
+                                </div>
+                                <div class="form-control">
+                                    <label class="label">
+                                        <span class="label-text">Address</span>
+                                    </label>
+                                    <input type="text" placeholder="address" name='address' class="input input-bordered" />
                                 </div>
                                 <input type="submit" value="Submit" />
 

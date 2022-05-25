@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UserOrderDelete = () => {
+const ManageOrder = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const UserOrderDelete = () => {
     );
 };
 
-export default UserOrderDelete;
+export default ManageOrder;
