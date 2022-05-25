@@ -7,6 +7,8 @@ import SignUp from './Pages/Login/SignUp';
 import Home from './Pages/Home/Home';
 import Navbar from './Pages/Shared/Navbar';
 import Blogs from './Pages/Blog/Blogs'
+import Portfolio from './Pages/Portfolio/Portfolio';
+import Dashboard from './Pages/Dashboard/Dashboard'
 
 
 
@@ -17,7 +19,11 @@ function App() {
       <Routes>  
         <Route path='/' element={<Home/>}></Route>
         <Route path='/blog' element={<Blogs/>}></Route>
-
+        
+        <Route path='/protfolio' element={<Portfolio/>}></Route>
+        <Route path='/dashboard' element={<Dashboard/>}>
+          
+        </Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp/>}></Route>
 
