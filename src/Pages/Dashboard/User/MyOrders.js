@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import UserOrderDelete from './UserOrderDelete';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
-
+import DeleteMyOrder from './DeleteMyOrder';
 
 
 const MyOrders  = () => {
+    const [cancel, setCancel] = useState({});
     const [user] = useAuthState(auth)
     let { data: order, refetch } = useQuery(["order", user?.email], () => {
         return fetch(`http://localhost:5000/api/order/?email=${user?.email}`, {
@@ -30,13 +30,13 @@ const MyOrders  = () => {
     if (!Array.isArray(order)) {
         order = [];
     }
-    const [cancel, setCancel] = useState({});
+    
 
     return (
         <div className="overflow-x-auto">
            
             {
-                cancel._id && <UserOrderDelete cancel={cancel} refetch={refetch} setCancel={setCancel} />
+                cancel._id && <DeleteMyOrder cancel={cancel} refetch={refetch} setCancel={setCancel} />
             }
             <table className="table w-full">
 

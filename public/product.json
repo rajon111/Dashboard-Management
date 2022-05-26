@@ -1,22 +1,24 @@
 [
     {
-        "name":"Demor-1",
+        "name":"RFL Thread Pipe",
         "brand":"rfl",
         "model":"m-1",
         "price":"159",
         "weight":"30",
         "quantity":"78749",
+        "discription":"Our range of RFL uPVC Thread Pipes can withstand all types of weather conditions. Available in different dimensions. It does not require any kind of welding or pasting thereby reducing effort and cost.",
         "type":"tool",
         "img":"https://www.rflbd.com/Application/storage/app/public/relativeContentPath/products/d380cb0f59972992889cbe7819f1cf801.jpg"
 
     },
     {
-        "name":"Demor-2",
+        "name":"Support Teflon Tape",
         "brand":"rfl",
         "model":"m-2",
         "price":"159",
         "weight":"30",
         "quantity":"78749",
+        "discription":"Support Teflon tape is widely used in plumbing for sealing pipe threads to reduce the risk of leaks when connecting metal pipes or thread pipes along plumbing or fuel lines. ",
         "type":"tool",
         "img":"https://www.rflbd.com/Application/storage/app/public/relativeContentPath/products/d380cb0f59972992889cbe7819f1cf801.jpg"
 
@@ -63,6 +65,28 @@
         "quantity":"7832",
         "type":"tool",
         "img":"https://www.rflbd.com/Application/storage/app/public/relativeContentPath/products/9db2d675c465147eee8d22c9eb0afb5e66.jpg"
+
+    },
+    {
+        "name":"Demor-4",
+        "brand":"rfl",
+        "model":"m-4",
+        "price":"129",
+        "weight":"50",
+        "quantity":"78849",
+        "type":"tool",
+        "img":"https://www.rflbd.com/Application/storage/app/public/relativeContentPath/products/76c0a86535fda452e4f779c10cd9a1d86.jpg"
+
+    },
+    {
+        "name":"Demor-4",
+        "brand":"rfl",
+        "model":"m-4",
+        "price":"129",
+        "weight":"50",
+        "quantity":"78849",
+        "type":"tool",
+        "img":"https://www.rflbd.com/Application/storage/app/public/relativeContentPath/products/76c0a86535fda452e4f779c10cd9a1d86.jpg"
 
     }
        

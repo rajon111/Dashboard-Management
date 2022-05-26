@@ -31,7 +31,7 @@ const ProductDetails = () => {
                 quantity: e.target.quantity.value,
                 phone: e.target.phone.value,
                 address: e.target.address.value,
-                
+
             }
             fetch('http://localhost:5000/api/order', {
                 method: 'POST',
@@ -60,63 +60,63 @@ const ProductDetails = () => {
 
         <div>
             <h1 className='text-3xl text-center text-bold bg-base-200'>Make Sure Your Order Now :</h1>
-            <div class="hero min-h-fit bg-base-200">
-                <div class="hero-content flex-col lg:flex-row">
+            <div className="hero min-h-fit bg-base-200">
+                <div className="hero-content flex-col lg:flex-row">
                     <img src={toolsDetails?.img} alt='' />
                     <div>
-                        <h1 class="text-5xl font-bold">Model: {toolsDetails?.model}</h1>
-                        <p class="py-6">Quantity: ${toolsDetails?.quantity}</p>
-                        <p class="py-6">Price: ${toolsDetails?.price}</p>
-                        
+                        <h1 className="text-5xl font-bold">Model: {toolsDetails?.model}</h1>
+                        <p className="py-6">Quantity: ${toolsDetails?.quantity}</p>
+                        <p className="py-6">Price: ${toolsDetails?.price}</p>
+
                     </div>
                 </div>
             </div>
 
 
             <form onSubmit={handleOrderSubmit}>
-                <div class="hero min-h-fit bg-base-200">
-        
-                        <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                            <div class="card-body">
+                <div className="hero min-h-fit bg-base-200">
 
-                                <div class="form-control">
-                                    <label class="label">
-                                        <span class="label-text">Email</span>
-                                    </label>
-                                    <input type="text" readOnly placeholder={user?.email} class="input input-bordered" />
-                                    
-                                </div>
+                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                        <div className="card-body">
 
-                                <div class="form-control">
-                                    <label class="label">
-                                        <span class="label-text">Name</span>
-                                    </label>
-                                    <input type="text" placeholder={user?.displayName} readOnly class="input input-bordered" />
-                                </div>
-                                <div class="form-control">
-                                    <label class="label">
-                                        <span class="label-text">Quantity</span>
-                                    </label>
-                                    <input type="text" placeholder="quantity" name='quantity' class="input input-bordered" />
-                                </div>
-                                <div class="form-control">
-                                    <label class="label">
-                                        <span class="label-text">Phone</span>
-                                    </label>
-                                    <input type="number" placeholder="Phone" name='phone' class="input input-bordered" />
-                                </div>
-                                <div class="form-control">
-                                    <label class="label">
-                                        <span class="label-text">Address</span>
-                                    </label>
-                                    <input type="text" placeholder="address" name='address' class="input input-bordered" />
-                                </div>
-                                <input type="submit" className='btn' value="Order Now" />
-                              
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Email</span>
+                                </label>
+                                <input type="text" readOnly placeholder={user?.email} className="input input-bordered" />
+
                             </div>
+
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Name</span>
+                                </label>
+                                <input type="text" placeholder={user?.displayName} readOnly className="input input-bordered" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Quantity</span>
+                                </label>
+                                <input type="text" placeholder="quantity" name='quantity' className="input input-bordered" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Phone</span>
+                                </label>
+                                <input type="number" placeholder="Phone" name='phone' className="input input-bordered" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Address</span>
+                                </label>
+                                <input type="text" placeholder="address" name='address' className="input input-bordered" />
+                            </div>
+                            <input type="submit" className='btn' value="Order Now" />
+
                         </div>
                     </div>
-                
+                </div>
+
             </form>
         </div>
     );

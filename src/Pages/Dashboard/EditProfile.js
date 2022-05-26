@@ -3,7 +3,9 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import Loading from '../Shared/Loading'
+import Loading from '../Shared/Loading';
+import { useQuery } from 'react-query';
+
 
 
 const EditProfile = () => {
@@ -13,9 +15,13 @@ const EditProfile = () => {
         handleSubmit, reset
     } = useForm();
 
-    if (loading) {
-        return <Loading />
+    
+
+    if (loading ) {
+        return <Loading  />
     }
+
+
 
     const imageStorageKey = '8c0a9913c88db4043222ef9e72b3c378';
 
@@ -59,7 +65,10 @@ const EditProfile = () => {
             }
         })
 
+       
+
     }
+
 
     return (
         <div>
