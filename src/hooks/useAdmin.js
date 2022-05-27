@@ -5,8 +5,9 @@ const useAdmin = user => {
     const [adminLoading, setAdminLoading] = useState(true);
     useEffect(() => {
         const email = user?.email;
+        console.log(email)
         if (email) {
-            fetch(`http://localhost:5000api/admin?email=${email}`, {
+            fetch(`https://ancient-bastion-87117.herokuapp.com/api/admin?email=${email}`, {
                 method: 'GET',
                 headers: {
                     'content-type': 'application/json',
