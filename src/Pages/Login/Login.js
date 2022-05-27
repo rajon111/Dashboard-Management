@@ -1,6 +1,7 @@
 import React, { useEffect,useState } from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle,useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import useToken from '../../hooks/useToken'
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading';
@@ -9,17 +10,18 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 const Login = () => {
     const [email, setEmail] = useState('')
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-    const { register, formState: { errors }, handleSubmit , trigger} = useForm();
+    const { register, formState: { errors }, handleSubmit } = useForm();
     const [
         signInWithEmailAndPassword,
         user,
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
-    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+    
 
-
-    // const [token] = useToken(user || gUser);
+    const tokenUser = (user || gUser)
+    console.log(tokenUser)
+    const [token] = useToken(user || gUser);
 
     let signInError;
     const navigate = useNavigate();
@@ -45,15 +47,16 @@ const Login = () => {
         }
     }, [error || gError])
 
-    useEffect(() => {
-        if (user || gUser) {
+
+    useEffect( () =>{
+        if (token) {
             navigate(from, { replace: true });
         }
-    }, [user || gUser, navigate, from])
+    }, [token, from, navigate])
 
 
 
-    if (loading || gLoading || sending) {
+    if (loading || gLoading ) {
         return <Loading></Loading>
     }
 
@@ -68,15 +71,6 @@ const Login = () => {
 
     }
 
-    // reset password part
-  const resetPassword =() => {
-    if (email) {
-      sendPasswordResetEmail(email);
-      toast('Sent email');
-    } else {
-      toast('please enter your email address');
-    }
-  }
 
 
     return (
@@ -104,11 +98,7 @@ const Login = () => {
                                         message: 'Provide a valid Email'
                                     }
                                 })}
-                                onKeyUp={(e) => {
-                                    trigger('email')
-                                    setEmail(e.target.value)
-                                }}
-        
+                               
                             />
                             <label className="label">
                                 {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
@@ -145,7 +135,6 @@ const Login = () => {
                     </form>
                     <p><small>New to site ? <Link className='text-primary' to="/signup">Create New Account</Link></small></p>
                     
-                        <p>Forget Password? <button className='' onClick={resetPassword}>Reset Password</button> </p>
                     
 
                     <div className="divider">OR</div>

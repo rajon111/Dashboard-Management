@@ -81,13 +81,13 @@ const EditProfile = () => {
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input type="text" placeholder={user.displayName} className="input input-bordered" disabled />
+                            <input type="text" placeholder={user?.displayName} className="input input-bordered" disabled />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="text" placeholder={user.email} className="input input-bordered" disabled />
+                            <input type="text" placeholder={user?.email} className="input input-bordered" disabled />
                         </div>
                         <div className="form-control">
                             <label className="label">

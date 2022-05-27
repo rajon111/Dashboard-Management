@@ -2,11 +2,33 @@ import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../../Shared/Loading'
 import DeleteUser from './DeleteUser';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 
 const Users = () => {
     const [userModal, setUserModal] = useState({})
     const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/api/users').then(res => res.json()));
     console.log(users);
+    const makeAdmin = (userEmail)=>{
+        const email = {email: userEmail}
+        console.log(email)
+        
+        fetch('http://localhost:5000/api/admin', {
+                    method: 'PUT',
+                    headers: {
+                        'content-type': 'application/json',
+                        authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                    },
+                    body: JSON.stringify(email)
+                })
+                .then(res =>res.json())
+                .then(result =>{
+                    console.log(result)
+                    
+                })
+               
+
+    }
 
     if (isLoading) {
         return <Loading />
@@ -39,8 +61,8 @@ const Users = () => {
                                     <td>{user?.email}</td>
                                     <td>{user.isAdmin}</td>
 
-                                    <td><label onClick={() => setUserModal(user)} htmlFor="deleteUserModal" className="btn modal-button">open modal</label></td>
-                                    <td><button >Make Admin</button></td>
+                                    <td><label onClick={() => setUserModal(user)} htmlFor="deleteUserModal" className="btn modal-button">remove User</label></td>
+                                    <td>{!(user.isAdmin)? <button onClick={()=>makeAdmin(user?.email)} className='btn'>Make Admin</button> : ''}</td>
 
                                     {/* <td>
                                         {
