@@ -47,7 +47,7 @@ const EditProfile = () => {
                     github: data.github,
                     avatar: img,
                 }
-                fetch('https://assignment-12-2b6d5.web.app/api/users/profile', {
+                fetch('https://ancient-bastion-87117.herokuapp.com/api/users/profile', {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',

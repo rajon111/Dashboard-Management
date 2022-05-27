@@ -7,13 +7,13 @@ import auth from '../../../firebase.init';
 
 const Users = () => {
     const [userModal, setUserModal] = useState({})
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://assignment-12-2b6d5.web.app/api/users').then(res => res.json()));
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://ancient-bastion-87117.herokuapp.com/api/users').then(res => res.json()));
     //console.log(users);
     const makeAdmin = (userEmail) => {
         const email = { email: userEmail }
         console.log(email)
 
-        fetch('https://assignment-12-2b6d5.web.app/api/admin', {
+        fetch('https://ancient-bastion-87117.herokuapp.com/api/admin', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

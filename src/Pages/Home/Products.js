@@ -4,7 +4,7 @@ import Loading from '../Shared/Loading';
 import ProductCard from './ProductCard';
 
 const Products = () => {
-    const { data: tools, isLoading } = useQuery('tools', () => fetch('https://assignment-12-2b6d5.web.app/tools').then(res => res.json()));
+    const { data: tools, isLoading } = useQuery('tools', () => fetch('https://ancient-bastion-87117.herokuapp.com/tools').then(res => res.json()));
 
     if (isLoading) {
         return <Loading />

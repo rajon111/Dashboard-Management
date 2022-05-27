@@ -10,7 +10,7 @@ const ProductDetails = () => {
     const [user] = useAuthState(auth)
     const { id } = useParams()
 
-    const { data: toolsDetails, loading, refetch } = useQuery(['toolsDetails', id], () => fetch(`https://assignment-12-2b6d5.web.app/tools/${ id }`).then(res => res.json()));
+    const { data: toolsDetails, loading, refetch } = useQuery(['toolsDetails', id], () => fetch(`https://ancient-bastion-87117.herokuapp.com/tools/${ id }`).then(res => res.json()));
     //console.log(toolsDetails)
 
     const handleOrderSubmit = e => {
@@ -33,7 +33,7 @@ const ProductDetails = () => {
                 address: e.target.address.value,
 
             }
-            fetch('https://assignment-12-2b6d5.web.app/api/order', {
+            fetch('https://ancient-bastion-87117.herokuapp.com/api/order', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

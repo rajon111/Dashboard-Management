@@ -10,16 +10,16 @@ const CheckoutForm = ({ orders }) => {
     const [transactionId, setTransactionId] = useState('');
     const [clientSecret, setClientSecret] = useState('');
 
-    const { _id, price, patient, patientName } = orders;
+    const { _id, pay, user } = orders;
 
     useEffect(() => {
-        fetch('https://secret-dusk-46242.herokuapp.com/create-payment-intent', {
+        fetch('https://ancient-bastion-87117.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
-                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                'authorization': `Bearer ${ localStorage.getItem('accessToken') }`
             },
-            body: JSON.stringify({ price })
+            body: JSON.stringify({ pay })
         })
             .then(res => res.json())
             .then(data => {
@@ -28,7 +28,7 @@ const CheckoutForm = ({ orders }) => {
                 }
             });
 
-    }, [price])
+    }, [pay])
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -58,8 +58,8 @@ const CheckoutForm = ({ orders }) => {
                 payment_method: {
                     card: card,
                     billing_details: {
-                        name: patientName,
-                        email: patient
+                        name: user,
+                        // email: patient
                     },
                 },
             },
@@ -72,26 +72,26 @@ const CheckoutForm = ({ orders }) => {
         else {
             setCardError('');
             setTransactionId(paymentIntent.id);
-          //  console.log(paymentIntent);
+            //  console.log(paymentIntent);
             setSuccess('Congrats! Your payment is completed.')
-            
+
             //store payment on database
             const payment = {
-                appointment: _id,
+                orders: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`https://secret-dusk-46242.herokuapp.com/booking/${_id}`, {
+            fetch(`https://ancient-bastion-87117.herokuapp.com/api/order/${ _id }`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',
-                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                    'authorization': `Bearer ${ localStorage.getItem('accessToken') }`
                 },
                 body: JSON.stringify(payment)
-            }).then(res=>res.json())
-            .then(data => {
-                setProcessing(false);
-               // console.log(data);
-            })
+            }).then(res => res.json())
+                .then(data => {
+                    setProcessing(false);
+                    // console.log(data);
+                })
 
         }
     }

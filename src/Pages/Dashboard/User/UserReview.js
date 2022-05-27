@@ -7,7 +7,7 @@ import auth from '../../../firebase.init';
 
 const UserReview = () => {
     const [user] = useAuthState(auth)
-    const { data: userData } = useQuery(user?.email, () => fetch(`https://assignment-12-2b6d5.web.app/api/users/profile/${ user?.email }`, {
+    const { data: userData } = useQuery(user?.email, () => fetch(`https://ancient-bastion-87117.herokuapp.com/api/users/profile/${ user?.email }`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ const UserReview = () => {
             starts: e.target.start.value,
             review: e.target.review.value,
         }
-        fetch('https://assignment-12-2b6d5.web.app/api/review', {
+        fetch('https://ancient-bastion-87117.herokuapp.com/api/review', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -6,7 +6,7 @@ import Loading from '../Shared/Loading'
 
 const MyProfile = () => {
     const [user] = useAuthState(auth)
-    const { data: profileDetails, isLoading } = useQuery(['profileDetails', user?.email], () => fetch(`https://assignment-12-2b6d5.web.app/api/users/profile/${ user?.email }`).then(res => res.json()));
+    const { data: profileDetails, isLoading } = useQuery(['profileDetails', user?.email], () => fetch(`https://ancient-bastion-87117.herokuapp.com/api/users/profile/${ user?.email }`).then(res => res.json()));
     //console.log('po', profileDetails)
 
     if (isLoading) {

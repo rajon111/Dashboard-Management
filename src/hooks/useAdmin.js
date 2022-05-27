@@ -6,7 +6,7 @@ const useAdmin = user => {
     useEffect(() => {
         const email = user?.email;
         if (email) {
-            fetch(`https://assignment-12-2b6d5.web.app/admin/${ email }`, {
+            fetch(`http://localhost:5000api/admin?email=${email}`, {
                 method: 'GET',
                 headers: {
                     'content-type': 'application/json',
@@ -15,7 +15,13 @@ const useAdmin = user => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    setAdmin(data.admin);
+                    if (data.role === "admin") {
+                        setAdmin(true);
+                    }
+                    else {
+                        setAdmin(false);
+                    }
+                    // setAdmin(data.admin);
                     setAdminLoading(false);
                 })
         }

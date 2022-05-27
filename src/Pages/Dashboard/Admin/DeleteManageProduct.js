@@ -4,7 +4,7 @@ const DeleteManageProduct = ({ manModal, setManModal, refetch }) => {
 
     const handleUserDalete = (id) => {
         // console.log(id)
-        fetch(`https://assignment-12-2b6d5.web.app/api/products/admin/${ id }`, {
+        fetch(`https://ancient-bastion-87117.herokuapp.com/api/products/admin/${ id }`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',

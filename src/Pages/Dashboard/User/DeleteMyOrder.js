@@ -4,7 +4,7 @@ const DeleteMyOrder = ({ cancel, refetch, setCancel }) => {
 
     const deleteOrder = (id) => {
         //console.log(id)
-        fetch(`https://assignment-12-2b6d5.web.app/api/orders/${ id }`, {
+        fetch(`https://ancient-bastion-87117.herokuapp.com/api/orders/${ id }`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',

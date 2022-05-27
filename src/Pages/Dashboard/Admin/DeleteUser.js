@@ -3,7 +3,7 @@ import React from 'react';
 const DeleteUser = ({ userModal, setUserModal, refetch }) => {
     // api/admin/users/
     const handleUserDalete = (id) => {
-        fetch(`https://assignment-12-2b6d5.web.app/api/admin/users/${ id }`, {
+        fetch(`https://ancient-bastion-87117.herokuapp.com/api/admin/users/${ id }`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',

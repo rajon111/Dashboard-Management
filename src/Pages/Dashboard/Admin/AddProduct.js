@@ -34,11 +34,11 @@ const AddProduct = () => {
                         img: img
                     }
                     // send to your database 
-                    fetch('https://assignment-12-2b6d5.web.app/api/products', {
+                    fetch('https://ancient-bastion-87117.herokuapp.com/api/products', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
-                            authorization: `Bearer ${ localStorage.getItem('accessToken') }`
+                            'authorization': `Bearer ${ localStorage.getItem('accessToken') }`
                         },
                         body: JSON.stringify(product)
                     })

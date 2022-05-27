@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const ManageProduct = () => {
     const [manModal, setManModal] = useState({})
-    const { data: toolsallMan, isLoading, refetch } = useQuery(['toolsallMan', manModal.id], () => fetch('https://assignment-12-2b6d5.web.app/toolsallmanage').then(res => res.json()));
+    const { data: toolsallMan, isLoading, refetch } = useQuery(['toolsallMan', manModal.id], () => fetch('https://ancient-bastion-87117.herokuapp.com/toolsallmanage').then(res => res.json()));
     // console.log(toolsallMan)
 
     if (isLoading) {

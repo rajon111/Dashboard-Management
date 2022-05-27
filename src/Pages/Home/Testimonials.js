@@ -4,7 +4,7 @@ import { useQuery } from 'react-query'
 import Loading from '../../Pages/Shared/Loading'
 
 const Testimonials = () => {
-    const { data: reviews, isLoading } = useQuery('reviews', () => fetch('https://assignment-12-2b6d5.web.app/api/home/review').then(res => res.json()));
+    const { data: reviews, isLoading } = useQuery('reviews', () => fetch('https://ancient-bastion-87117.herokuapp.com/api/home/review').then(res => res.json()));
 
     // console.log('check', reviews)
     if (isLoading) {

@@ -9,7 +9,7 @@ const UpDateProduct = () => {
     const [user] = useAuthState(auth)
     const { id } = useParams()
 
-    const { data: updateProduct, loading, refetch } = useQuery(['updateProduct', id], () => fetch(`https://assignment-12-2b6d5.web.app/tools/${ id }`).then(res => res.json()));
+    const { data: updateProduct, loading, refetch } = useQuery(['updateProduct', id], () => fetch(`https://ancient-bastion-87117.herokuapp.com/tools/${ id }`).then(res => res.json()));
     //    console.log('hello',updateProduct)
 
     const handleUpdate = e => {
@@ -20,7 +20,7 @@ const UpDateProduct = () => {
             price: e.target.price.value,
             discription: e.target.discription.value,
         }
-        fetch(`https://assignment-12-2b6d5.web.app/api/products/${ id }`, {
+        fetch(`https://ancient-bastion-87117.herokuapp.com/api/products/${ id }`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',

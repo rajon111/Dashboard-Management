@@ -5,7 +5,7 @@ import AllProductCard from './AllProductCard';
 
 const AllProducts = () => {
 
-    const { data: toolsall, isLoading } = useQuery('toolsall', () => fetch('https://assignment-12-2b6d5.web.app/tools').then(res => res.json()));
+    const { data: toolsall, isLoading } = useQuery('toolsall', () => fetch('https://ancient-bastion-87117.herokuapp.com/tools').then(res => res.json()));
 
     if (isLoading) {
         return <Loading />
