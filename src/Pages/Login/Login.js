@@ -20,7 +20,7 @@ const Login = () => {
     
 
     const tokenUser = (user || gUser)
-    console.log(tokenUser)
+    //console.log(tokenUser)
     const [token] = useToken(user || gUser);
 
     let signInError;

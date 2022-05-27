@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../../Shared/Loading';
 import DeleteManageProduct from '../Admin/DeleteManageProduct'
+import { Link } from 'react-router-dom';
 
 const ManageProduct = () => {
     const [manModal, setManModal] = useState({})
-    const { data: toolsallMan, isLoading, refetch } = useQuery(['toolsallMan', manModal.id], () => fetch('http://localhost:5000/toolsallmanage').then(res => res.json()));
-    console.log(toolsallMan)
+    const { data: toolsallMan, isLoading, refetch } = useQuery(['toolsallMan', manModal.id], () => fetch('https://assignment-12-2b6d5.web.app/toolsallmanage').then(res => res.json()));
+    // console.log(toolsallMan)
 
     if (isLoading) {
         return <Loading />
@@ -38,7 +39,7 @@ const ManageProduct = () => {
                                     <td>{all?.name}</td>
                                     <td>{all?.price}</td>
                                     <td>{all?.quantity}</td>
-                                    <td><button>Update</button></td>
+                                    <td><Link to={`/dashboard/manageproduct/${ all._id }`}>Update</Link></td>
                                     <td><label htmlFor="deleteManageProductModal" onClick={() => setManModal(all)} className="btn modal-button">Delete</label></td>
                                     {/* <td>{order?.paid ? order?.transactionId : 'unpaid'}</td>
                                     <td>

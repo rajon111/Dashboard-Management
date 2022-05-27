@@ -17,6 +17,7 @@ import EditProfile from './Pages/Dashboard/EditProfile';
 import AddProduct from './Pages/Dashboard/Admin/AddProduct';
 import ManageOrder from './Pages/Dashboard/Admin/ManageOrder';
 import ManageProduct from './Pages/Dashboard/Admin/ManageProduct';
+import UpDateProduct from './Pages/Dashboard/Admin/UpDateProduct';
 import Users from './Pages/Dashboard/Admin/Users';
 import AllProducts from './Pages/Home/AllProducts';
 import Payment from './Pages/Dashboard/Payment';
@@ -41,6 +42,7 @@ function App() {
             <Route path='addproduct' element={<AddProduct/>}></Route>
             <Route path='manageorder' element={<ManageOrder/>}></Route>
             <Route path='manageproduct' element={<ManageProduct/>}></Route>
+            <Route path='manageproduct/:id' element={<UpDateProduct/>}></Route>
             <Route path='payment/:id' element={<Payment/>}></Route>
             <Route path='users' element={<Users/>}></Route>
             <Route path='edit' element={<EditProfile></EditProfile>}></Route>

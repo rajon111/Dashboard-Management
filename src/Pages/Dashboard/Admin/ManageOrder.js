@@ -6,7 +6,7 @@ import DeleteManageOrder from './DeleteManageOrder';
 
 const ManageOrder = () => {
     const [mangeOederModal, setManageOrderMOdal] = useState({})
-    const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch('http://localhost:5000/api/orders').then(res => res.json()));
+    const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch('https://assignment-12-2b6d5.web.app/api/orders').then(res => res.json()));
 
     if (isLoading) {
         return <Loading />
@@ -47,7 +47,7 @@ const ManageOrder = () => {
                                                         order?.status ? <p className='text-green-500'>Delivered</p> : <label htmlFor="shipped-modal" className="text-orange-500 hover:underline hover:cursor-pointer">Shipped</label>
                                                     }
                                                 </> :
-                                                <label htmlFor="delete-order" onClick={()=>setManageOrderMOdal(order)} className="text-red-500 hover:underline hover:cursor-pointer">Cancel</label>
+                                                <label htmlFor="delete-order" onClick={() => setManageOrderMOdal(order)} className="text-red-500 hover:underline hover:cursor-pointer">Cancel</label>
                                         }
 
                                     </td>

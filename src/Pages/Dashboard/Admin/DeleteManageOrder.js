@@ -2,7 +2,7 @@ import React from 'react';
 
 const DeleteManageOrder = ({ mangeOederModal, setManageOrderMOdal, refetch }) => {
     const handleUserDalete = (id) => {
-        fetch(`http://localhost:5000/api/admin/orders/${ id }`, {
+        fetch(`https://assignment-12-2b6d5.web.app/api/admin/orders/${ id }`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',
@@ -11,7 +11,7 @@ const DeleteManageOrder = ({ mangeOederModal, setManageOrderMOdal, refetch }) =>
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                //console.log(data)
 
             })
         refetch();

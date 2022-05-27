@@ -7,15 +7,15 @@ import auth from '../../../firebase.init';
 import DeleteMyOrder from './DeleteMyOrder';
 
 
-const MyOrders  = () => {
+const MyOrders = () => {
     const [cancel, setCancel] = useState({});
     const [user] = useAuthState(auth)
     let { data: order, refetch } = useQuery(["order", user?.email], () => {
-        return fetch(`http://localhost:5000/api/order/?email=${user?.email}`, {
+        return fetch(`https://assignment-12-2b6d5.web.app/api/order/?email=${ user?.email }`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-                "authorization": `Bearer ${localStorage.getItem("accessToken")}`
+                "authorization": `Bearer ${ localStorage.getItem("accessToken") }`
             }
         })
             .then(res => {
@@ -30,11 +30,11 @@ const MyOrders  = () => {
     if (!Array.isArray(order)) {
         order = [];
     }
-    
+
 
     return (
         <div className="overflow-x-auto">
-           
+
             {
                 cancel._id && <DeleteMyOrder cancel={cancel} refetch={refetch} setCancel={setCancel} />
             }
@@ -46,7 +46,7 @@ const MyOrders  = () => {
                         <th>Price</th>
                         <th>Status</th>
                         <th>Order ID</th>
-                        
+
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -65,7 +65,7 @@ const MyOrders  = () => {
                                             order?.paid ? <p className='text-green-500'>Paid</p> :
                                                 <>
                                                     <label onClick={() => setCancel(order)} htmlFor="user-delete-order" className="text-red-500 hover:cursor-pointer hover:underline">Cancel</label>
-                                                    <Link className='mx-2 text-green-500 hover:underline' to={`/dashboard/payment/${order?._id}`}>pay</Link>
+                                                    <Link className='mx-2 text-green-500 hover:underline' to={`/dashboard/payment/${ order?._id }`}>pay</Link>
                                                 </>
                                         }
                                     </td>
@@ -79,4 +79,4 @@ const MyOrders  = () => {
     );
 };
 
-export default MyOrders ;
+export default MyOrders;

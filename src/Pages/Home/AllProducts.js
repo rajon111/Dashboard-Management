@@ -5,20 +5,20 @@ import AllProductCard from './AllProductCard';
 
 const AllProducts = () => {
 
-    const { data: toolsall, isLoading } = useQuery('toolsall', () => fetch('http://localhost:5000/tools').then(res => res.json()));
+    const { data: toolsall, isLoading } = useQuery('toolsall', () => fetch('https://assignment-12-2b6d5.web.app/tools').then(res => res.json()));
 
-    if(isLoading){
-        return <Loading/>
+    if (isLoading) {
+        return <Loading />
     }
 
     return (
         <div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                 {
-                  toolsall?.map((tool,index) =><AllProductCard tool={tool} key={index}></AllProductCard>) 
+                    toolsall?.map((tool, index) => <AllProductCard tool={tool} key={index}></AllProductCard>)
                 }
             </div>
-            
+
         </div>
     );
 };

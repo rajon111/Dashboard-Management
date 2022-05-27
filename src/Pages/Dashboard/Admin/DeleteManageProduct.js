@@ -3,8 +3,8 @@ import React from 'react';
 const DeleteManageProduct = ({ manModal, setManModal, refetch }) => {
 
     const handleUserDalete = (id) => {
-        console.log(id)
-        fetch(`http://localhost:5000/api/products/admin/${ id }`, {
+        // console.log(id)
+        fetch(`https://assignment-12-2b6d5.web.app/api/products/admin/${ id }`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',
@@ -13,7 +13,7 @@ const DeleteManageProduct = ({ manModal, setManModal, refetch }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
 
             })
         refetch();

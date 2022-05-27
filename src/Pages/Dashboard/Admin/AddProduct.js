@@ -5,64 +5,64 @@ import { useQuery } from 'react-query';
 import { toast } from 'react-toastify';
 
 const AddProduct = () => {
-    const { register, formState: { errors }, handleSubmit,isLoading, reset } = useForm();
+    const { register, formState: { errors }, handleSubmit, isLoading, reset } = useForm();
 
-    const imageStorageKey='8c0a9913c88db4043222ef9e72b3c378';
+    const imageStorageKey = '8c0a9913c88db4043222ef9e72b3c378';
 
 
     const onSubmit = async data => {
-        console.log('dayt',data)
+        // console.log('dayt', data)
         const image = data?.img[0];
         const formData = new FormData();
         formData.append('image', image);
-        const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
+        const url = `https://api.imgbb.com/1/upload?key=${ imageStorageKey }`;
         fetch(url, {
             method: 'POST',
             body: formData
         })
-        .then(res=>res.json())
-        .then(result =>{
-            if(result.success){
-                console.log('imgbb',result)
-                const img = result.data.url;
-                const product = {
-                    name: data?.name,
-                    brand: data?.brand,
-                    quantity: data?.quantity,
-                    price: data?.price,
-                    discription: data?.discription,
-                    img: img
-                }
-                // send to your database 
-                fetch('http://localhost:5000/api/products', {
-                    method: 'POST',
-                    headers: {
-                        'content-type': 'application/json',
-                        authorization: `Bearer ${localStorage.getItem('accessToken')}`
-                    },
-                    body: JSON.stringify(product)
-                })
-                .then(res =>res.json())
-                .then(inserted =>{
-                    console.log('product',inserted)
-                    if(inserted.insertedId){
-                        toast.success('Product added successfully') 
-                        reset();
+            .then(res => res.json())
+            .then(result => {
+                if (result.success) {
+                    // console.log('imgbb', result)
+                    const img = result.data.url;
+                    const product = {
+                        name: data?.name,
+                        brand: data?.brand,
+                        quantity: data?.quantity,
+                        price: data?.price,
+                        discription: data?.discription,
+                        img: img
                     }
-                    else{
-                        toast.error('Failed to add Product');
-                    }
-                })
+                    // send to your database 
+                    fetch('https://assignment-12-2b6d5.web.app/api/products', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json',
+                            authorization: `Bearer ${ localStorage.getItem('accessToken') }`
+                        },
+                        body: JSON.stringify(product)
+                    })
+                        .then(res => res.json())
+                        .then(inserted => {
+                            // console.log('product', inserted)
+                            if (inserted.insertedId) {
+                                toast.success('Product added successfully')
+                                reset();
+                            }
+                            else {
+                                toast.error('Failed to add Product');
+                            }
+                        })
 
-            }
-            
-        })
+                }
+
+            })
     }
 
     if (isLoading) {
         return <Loading></Loading>
     }
-    
+
     return (
         <div>
             <h2 className="text-2xl">Add a New Product</h2>
@@ -105,7 +105,7 @@ const AddProduct = () => {
                     />
                     <label className="label">
                         {errors.brand?.type === 'required' && <span className="label-text-alt text-red-500">{errors.brand.message}</span>}
-                        
+
                     </label>
                 </div>
                 <div className="form-control w-full max-w-xs">
@@ -125,7 +125,7 @@ const AddProduct = () => {
                     />
                     <label className="label">
                         {errors.quantity?.type === 'required' && <span className="label-text-alt text-red-500">{errors.quantity.message}</span>}
-                        
+
                     </label>
                 </div>
                 <div className="form-control w-full max-w-xs">
@@ -145,7 +145,7 @@ const AddProduct = () => {
                     />
                     <label className="label">
                         {errors.price?.type === 'required' && <span className="label-text-alt text-red-500">{errors.price.message}</span>}
-                        
+
                     </label>
                 </div>
                 <div className="form-control w-full max-w-xs">
@@ -165,7 +165,7 @@ const AddProduct = () => {
                     />
                     <label className="label">
                         {errors.discription?.type === 'required' && <span className="label-text-alt text-red-500">{errors.discription.message}</span>}
-                        
+
                     </label>
                 </div>
 
@@ -191,7 +191,7 @@ const AddProduct = () => {
                 <input className='btn w-full max-w-xs text-white' type="submit" value="Add" />
             </form>
         </div>
-        
+
     );
 };
 

@@ -10,8 +10,8 @@ const ProductDetails = () => {
     const [user] = useAuthState(auth)
     const { id } = useParams()
 
-    const { data: toolsDetails, loading, refetch } = useQuery(['toolsDetails', id], () => fetch(`http://localhost:5000/tools/${ id }`).then(res => res.json()));
-    console.log(toolsDetails)
+    const { data: toolsDetails, loading, refetch } = useQuery(['toolsDetails', id], () => fetch(`https://assignment-12-2b6d5.web.app/tools/${ id }`).then(res => res.json()));
+    //console.log(toolsDetails)
 
     const handleOrderSubmit = e => {
         e.preventDefault();
@@ -33,7 +33,7 @@ const ProductDetails = () => {
                 address: e.target.address.value,
 
             }
-            fetch('http://localhost:5000/api/order', {
+            fetch('https://assignment-12-2b6d5.web.app/api/order', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ const ProductDetails = () => {
             })
                 .then(res => res.json())
                 .then(result => {
-                    console.log(result);
+                    // console.log(result);
                     if (result.insertedId) {
                         toast.success('Order placed successfully');
                         e.target.reset();

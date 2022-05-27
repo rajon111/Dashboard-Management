@@ -15,10 +15,10 @@ const EditProfile = () => {
         handleSubmit, reset
     } = useForm();
 
-    
 
-    if (loading ) {
-        return <Loading  />
+
+    if (loading) {
+        return <Loading />
     }
 
 
@@ -29,7 +29,7 @@ const EditProfile = () => {
         const image = data.avatar[0];
         const formData = new FormData();
         formData.append('image', image);
-        const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`
+        const url = `https://api.imgbb.com/1/upload?key=${ imageStorageKey }`
         fetch(url, {
             method: 'POST',
             body: formData,
@@ -47,11 +47,11 @@ const EditProfile = () => {
                     github: data.github,
                     avatar: img,
                 }
-                fetch('http://localhost:5000/api/users/profile', {
+                fetch('https://assignment-12-2b6d5.web.app/api/users/profile', {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
-                        'authorization': `Bearer ${localStorage.getItem("accessToken")}`
+                        'authorization': `Bearer ${ localStorage.getItem("accessToken") }`
                     },
                     body: JSON.stringify(userProfile),
                 }).then(res => {
@@ -65,14 +65,14 @@ const EditProfile = () => {
             }
         })
 
-       
+
 
     }
 
 
     return (
         <div>
-      
+
             <div className=" my-14 w-4/5 mx-auto rounded-xl shadow-2xl bg-base-100">
                 <h3 className='text-center text-3xl font-bold pt-5'>Update your profile</h3>
                 <form className='flex w-4/5 mx-auto' onSubmit={handleSubmit(handleEditProfile)} >

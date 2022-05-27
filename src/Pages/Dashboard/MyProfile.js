@@ -6,8 +6,8 @@ import Loading from '../Shared/Loading'
 
 const MyProfile = () => {
     const [user] = useAuthState(auth)
-    const { data: profileDetails, isLoading } = useQuery(['profileDetails', user?.email], () => fetch(`http://localhost:5000/api/users/profile/${ user?.email }`).then(res => res.json()));
-    console.log('po', profileDetails)
+    const { data: profileDetails, isLoading } = useQuery(['profileDetails', user?.email], () => fetch(`https://assignment-12-2b6d5.web.app/api/users/profile/${ user?.email }`).then(res => res.json()));
+    //console.log('po', profileDetails)
 
     if (isLoading) {
         return <Loading />
@@ -18,9 +18,9 @@ const MyProfile = () => {
             <div className="hero min-h-screen ">
                 <div className="hero-content flex-col lg:flex-row">
                     <div>
-                    <img src={profileDetails?.avatar} alt='' className="max-w-sm rounded-lg shadow-2xl" />
+                        <img src={profileDetails?.avatar} alt='' className="max-w-sm rounded-lg shadow-2xl" />
                     </div>
-                    
+
                     <div>
                         <h1 className="text-5xl font-bold">{profileDetails?.name}</h1>
                         <p className="py-6">{profileDetails?.phone}</p>

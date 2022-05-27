@@ -3,7 +3,7 @@ import React from 'react';
 const DeleteUser = ({ userModal, setUserModal, refetch }) => {
     // api/admin/users/
     const handleUserDalete = (id) => {
-        fetch(`http://localhost:5000/api/admin/users/${ id }`, {
+        fetch(`https://assignment-12-2b6d5.web.app/api/admin/users/${ id }`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',
@@ -12,7 +12,7 @@ const DeleteUser = ({ userModal, setUserModal, refetch }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
 
             })
         refetch();
