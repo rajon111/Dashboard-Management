@@ -8,6 +8,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 
 const ProductDetails = () => {
     const [user] = useAuthState(auth)
+    console.log(user)
     const { id } = useParams()
 
     const { data: toolsDetails, loading, refetch } = useQuery(['toolsDetails', id], () => fetch(`https://ancient-bastion-87117.herokuapp.com/tools/${ id }`).then(res => res.json()));
@@ -59,6 +60,21 @@ const ProductDetails = () => {
 
 
         <div>
+            <div className='flex mt-5 mb-5'>
+                <div class="avatar">
+                    <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                        <img src={user?.photoURL ? user?.photoURL : 'https://api.lorem.space/image/face?hash=92310'} alt='' />
+                        <div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div className='flex flex-col justify-center ml-4'>
+                    <p>Name:{user?.displayName}</p>
+                    <p>Email:{user?.email}</p>
+                </div>
+            </div>
             <h1 className='text-3xl text-center text-bold bg-base-200'>Make Sure Your Order Now :</h1>
             <div className="hero min-h-fit bg-base-200">
                 <div className="hero-content flex-col lg:flex-row">
