@@ -11,7 +11,9 @@ const Review = ({ review }) => {
                         <div className="w-16 rounded-full ring ring-primary ring-offset-base-100 mr-5">
                             <img src={review?.img} alt=""/>
                         </div>
-                        <p className='text-2xl'> Rattings : {review?.starts} <span className='rating '><input type="radio" name="rating-1" class="mask mask-star" /></span> </p>
+                        <p className='text-xl'> Rattings : {review?.starts} <span className='rating '><input type="radio" name="rating-1" class="mask mask-star" /></span> </p>
+                       
+                        
                     </div>
                     
                 </div>

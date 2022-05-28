@@ -1,4 +1,5 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
 const DeleteManageOrder = ({ mangeOederModal, setManageOrderMOdal, refetch }) => {
     const handleUserDalete = (id) => {
@@ -12,10 +13,12 @@ const DeleteManageOrder = ({ mangeOederModal, setManageOrderMOdal, refetch }) =>
             .then(res => res.json())
             .then(data => {
                 //console.log(data)
+                refetch();
+                setManageOrderMOdal({})
+                toast.success('Successfully cancled')
 
             })
-        refetch();
-        setManageOrderMOdal({})
+       
     }
 
     return (

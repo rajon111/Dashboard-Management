@@ -61,30 +61,32 @@ const Portfolio = () => {
                     </div>
                 </div>
                 <div>
-                    <div>
+                <div>
                         <h1 className='text-2xl text-center bg-rose-200 pt-4 pb-4 m-4'>Recent Project:1</h1>
-                        <h1 className='text-2xl  ml-5'>Live Link: </h1>
-                        <h1 className='text-2xl  ml-5'>Git Repo: </h1>
-                        <h1 className='text-2xl  ml-5'>Git Repo: </h1>
-
+                        <h1 className='text-2xl  ml-5'>Live Link:<a class="link link-accent">   https://sports-warehouse-management.web.app/</a></h1>
+                        <h1 className='text-2xl  ml-5 mt-3'>Git Repo(client):<a class="link link-accent"> https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-rajon111</a></h1>
+                        <h1 className='text-2xl  ml-5 mt-3'>Git Repo(server):<a class="link link-accent"> https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-rajon111</a></h1>
+                        
                     </div>
+                  
                     <div>
                         <h1 className='text-2xl text-center bg-rose-200 pt-4 pb-4 m-4'>Recent Project:2</h1>
-                        <h1 className='text-2xl  ml-5'>Live Link: </h1>
-                        <h1 className='text-2xl  ml-5'>Git Repo: </h1>
-                        <h1 className='text-2xl  ml-5'>Git Repo: </h1>
+                        <h1 className='text-2xl  ml-5'>Live Link:<a class="link link-accent">  https://hire-best-creative-director.web.app/login</a></h1>
+                        <h1 className='text-2xl  ml-5 mt-3 '>Git Repo:<a class="link link-accent"> https://github.com/programming-hero-web-course-4/independent-service-provider-rajon111</a></h1>
+                        
+                        
 
                     </div>
                     <div>
                         <h1 className='text-2xl text-center bg-rose-200 pt-4 pb-4 m-4'>Recent Project:3</h1>
-                        <h1 className='text-2xl  ml-5'>Live Link: </h1>
-                        <h1 className='text-2xl  ml-5'>Git Repo: </h1>
-                        <h1 className='text-2xl  ml-5'>Git Repo: </h1>
-
+                        <h1 className='text-2xl  ml-5'>Live Link:<a class="link link-accent">  https://fanciful-phoenix-b91cd7.netlify.app/</a></h1>
+                        <h1 className='text-2xl  ml-5 mt-3 mb-5'>Git Repo:<a class="link link-accent"> https://github.com/programming-hero-web-course-4/product-analysis-website-rajon111</a></h1>
+                        
                     </div>
+
+                   
                 </div>
             </div>
-
 
         </>
     );
