@@ -17,7 +17,7 @@ const MyProfile = () => {
 
     return (
         <div>
-            <h1 classNameName='text-2xl'>Welcome To My Profile</h1>
+            <h1 className='text-2xl'>Welcome To My Profile</h1>
 
             <div className="card w-lg bg-base-100 shadow-xl">
                 <figure className="px-10 pt-10">

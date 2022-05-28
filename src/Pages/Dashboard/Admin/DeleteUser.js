@@ -1,7 +1,8 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
 const DeleteUser = ({ userModal, setUserModal, refetch }) => {
-    // api/admin/users/
+    // console.log(userModal)
     const handleUserDalete = (id) => {
         fetch(`https://ancient-bastion-87117.herokuapp.com/api/admin/users/${ id }`, {
             method: 'DELETE',
@@ -17,6 +18,7 @@ const DeleteUser = ({ userModal, setUserModal, refetch }) => {
             })
         refetch();
         setUserModal({})
+        toast.info('deleted user')
     }
 
     return (
@@ -24,14 +26,11 @@ const DeleteUser = ({ userModal, setUserModal, refetch }) => {
 
         <div>
 
-
-
-
             <input type="checkbox" id="deleteUserModal" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">
-                    <h3 className="font-bold text-lg">Congratulations random Interner user!</h3>
-                    <p className="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
+                    <h3 className="font-bold text-lg">Are you sure to remove: {userModal?.email}</h3>
+                    
                     <div className="modal-action">
                         <label htmlFor="deleteUserModal" className="btn"><button onClick={() => handleUserDalete(userModal._id)}>Yes</button></label>
                     </div>

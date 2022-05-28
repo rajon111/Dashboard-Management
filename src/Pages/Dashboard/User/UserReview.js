@@ -29,7 +29,7 @@ const UserReview = () => {
             img: userData?.avatar || 'https://api.lorem.space/image/face?hash=92310',
             bio: userData?.bio || 'Web Developer',
             location: e.target.location.value,
-            starts: e.target.start.value,
+            t: e.target.start.value,
             review: e.target.review.value,
         }
         fetch('https://ancient-bastion-87117.herokuapp.com/api/review', {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
 const DeleteManageProduct = ({ manModal, setManModal, refetch }) => {
     console.log(manModal)
@@ -14,21 +15,23 @@ const DeleteManageProduct = ({ manModal, setManModal, refetch }) => {
             .then(res => res.json())
             .then(data => {
                 // console.log(data)
-
+                refetch();
+                setManModal({})
+                toast.success(' Deleted successfully')
             })
-        refetch();
-        setManModal({})
+      
     }
     return (
         <div>
             <input type="checkbox" id="deleteManageProductModal" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle">
-                <div className="modal-box">
-                    <h3 className="font-bold text-lg">Congratulations random Interner user!</h3>
-                    <p className="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
+                <div className="modal-box relative">
+                <label for="deleteManageProductModal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    
+                    <p className="py-4">Are you sure to remove ??</p>
                     <div className="modal-action">
-                    <button onClick={() => handleUserDalete(manModal._id)}>Yes</button>
-                        {/* <label for="deleteManageProductModal" className="btn"><button onClick={() => handleUserDalete(manModal._id)}>Yes</button></label> */}
+                    <button onClick={() => handleUserDalete(manModal._id)}><span class="btn btn-sm ">Yes</span> </button>
+                        
                     </div>
                 </div>
             </div>

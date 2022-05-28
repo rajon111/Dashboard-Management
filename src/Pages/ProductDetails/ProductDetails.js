@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { useQuery } from 'react-query';
 import { Link, useParams } from 'react-router-dom';
@@ -7,12 +7,28 @@ import auth from '../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 const ProductDetails = () => {
+    const [btnDisable, setBtnDisable] = useState(false);
     const [user] = useAuthState(auth)
     console.log(user)
     const { id } = useParams()
+   
+    
+
 
     const { data: toolsDetails, loading, refetch } = useQuery(['toolsDetails', id], () => fetch(`https://ancient-bastion-87117.herokuapp.com/tools/${ id }`).then(res => res.json()));
     //console.log(toolsDetails)
+
+    const handleBtn = (e) => {
+        let qtn = parseInt(e.target.value);
+        let productQtn = parseInt(toolsDetails.quantity);
+        // let minOrder = parseInt(product.minOrder);
+        if (qtn > productQtn || qtn <= 100 - 1) {
+            setBtnDisable(true);
+        } else {
+            setBtnDisable(false);
+        }
+
+    }
 
     const handleOrderSubmit = e => {
         e.preventDefault();
@@ -102,6 +118,7 @@ const ProductDetails = () => {
                                 <input type="text" readOnly placeholder={user?.email} className="input input-bordered" />
 
                             </div>
+                            
 
                             <div className="form-control">
                                 <label className="label">
@@ -113,7 +130,7 @@ const ProductDetails = () => {
                                 <label className="label">
                                     <span className="label-text">Quantity</span>
                                 </label>
-                                <input type="text" placeholder="quantity" name='quantity' className="input input-bordered" />
+                                <input type="text" placeholder="quantity" name='quantity' onChange = { handleBtn } className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -127,7 +144,9 @@ const ProductDetails = () => {
                                 </label>
                                 <input type="text" placeholder="address" name='address' className="input input-bordered" />
                             </div>
-                            <input type="submit" className='btn' value="Order Now" />
+                            
+    
+                            <input type="submit" disabled = { btnDisable } className='btn' value="Order Now" />
 
                         </div>
                     </div>

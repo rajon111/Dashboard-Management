@@ -1,4 +1,5 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
 const DeleteMyOrder = ({ cancel, refetch, setCancel }) => {
 
@@ -14,19 +15,22 @@ const DeleteMyOrder = ({ cancel, refetch, setCancel }) => {
             .then(res => res.json())
             .then(data => {
                 // console.log(data)
+                setCancel({})
+                refetch();
+                toast.success(' Deleted successfully')
 
             })
 
-        setCancel({})
-        refetch();
+
     }
     return (
         <div>
             <input type="checkbox" id="user-delete-order" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle">
-                <div className="modal-box">
-                    <h3 className="font-bold text-lg">Congratulations random Interner user!</h3>
-                    <p className="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
+                <div className="modal-box relative">
+                    <label for="user-delete-order" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+
+                    <p className="py-4">Are you sure to remove ??</p>
                     <div className="modal-action">
                         <button onClick={() => deleteOrder(cancel._id)}>Yes</button>
                     </div>

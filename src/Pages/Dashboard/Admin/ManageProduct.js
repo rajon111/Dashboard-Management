@@ -42,19 +42,7 @@ const ManageProduct = () => {
                                     <td>{all?.quantity}</td>
                                     <td><Link to={`/dashboard/manageproduct/${ all._id }`}>Update</Link></td>
                                     <td><label htmlFor="deleteManageProductModal" onClick={() => setManModal(all)} className="btn modal-button">Delete</label></td>
-                                    {/* <td>{order?.paid ? order?.transactionId : 'unpaid'}</td>
-                                    <td>
-                                        {
-                                            order?.paid ?
-                                                <>
-                                                    {
-                                                        order?.status ? <p className='text-green-500'>Delivered</p> : <label onClick={() => setShipped(order)} htmlFor="shipped-modal" className="text-orange-500 hover:underline hover:cursor-pointer">Shipped</label>
-                                                    }
-                                                </> :
-                                                <label onClick={() => setDeleted(order)} htmlFor="delete-order" className="text-red-500 hover:underline hover:cursor-pointer">Cancel</label>
-                                        }
-
-                                    </td> */}
+                                   
                                 </tr>
                             )
                         })
